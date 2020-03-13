@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+.Forms{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
 
 .Company-Text {
   font-family: 'Merienda', cursive;
