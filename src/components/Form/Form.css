@@ -1,0 +1,22 @@
+.FormData {
+    margin: 20px auto;
+    width: 200%;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.Title {
+    font-family: 'Fredoka One', cursive;
+    color: whitesmoke;
+    text-shadow: 3px 4px #6eb4e6;
+    margin-top: 3%;
+}
+
+@media (min-width: 600px) {
+    .FormData {
+        width: 500px;
+    }
+}

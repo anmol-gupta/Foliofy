@@ -1,4 +1,5 @@
 import React from "react";
+import "./Input.css";
 
 const input = props => {
   let inputElement = null;
@@ -6,28 +7,38 @@ const input = props => {
   switch (props.elementType) {
     case "input":
       inputElement = (
-        <input
-          className={classes.InputElement}
+        <div className="LabelInput">
+          <label className="Label">{props.label}</label>
+          <input
+          className="InputElement"
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
         />
+        </div>
+        
       );
       break;
     case "textarea":
       inputElement = (
-        <textarea
-          className={classes.InputElement}
+        <div className="LabelInput">
+          <label className="Label">{props.label}</label>
+          <textarea
+          className="InputElement"
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
-        />
+          />
+        </div>
+        
       );
       break;
     case "select":
       inputElement = (
+        <div className="LabelInput">
+         <label className="Label">{props.label}</label> 
         <select
-          className={classes.InputElement}
+          className="InputElement"
           value={props.value}
           onChange={props.changed}
         >
@@ -37,14 +48,16 @@ const input = props => {
             </option>
           ))}
         </select>
+        </div>
+        
       );
       break;
     default:
       inputElement = (
-        <div>
-          <label>{props.label}</label>
+        <div className="LabelInput">
+          <label className="Label">{props.label}</label>
           <input
-            className={classes.InputElement}
+            className="InputElement"
             {...props.elementConfig}
             value={props.value}
             onChange={props.changed}
@@ -52,6 +65,11 @@ const input = props => {
         </div>
       );
   }
+  return (
+    <div className="Input">
+        {inputElement}
+    </div>
+);
 };
 
 //WE WILL START FROM HERE.

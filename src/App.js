@@ -1,21 +1,35 @@
 import React from "react";
 import "./App.css";
-import {Button} from 'react-bootstrap';
-import Header from '../src/components/header/Header'
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <h1 className="Company-Text">Foliofy</h1>
-      <h4 className="Company-TagLine">
-        Instant portfolio generator{" "}
-        <span role="img" aria-label="cool" style={{ fontSize: "2rem" }}>
-          😎
-        </span>
-      </h4>
-      <Button className="Start-Button">Let's Start!</Button>
-    </div>
-  );
+import Header from "../src/components/header/Header";
+import Form from "../src/components/Form/Form";
+import StartupPage from "../src/components/StartupPage/StartupPage";
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showForm: false
+    };
+  }
+  showFormHandler = () => {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  };
+  render() {
+    let displayElement = <StartupPage changed={this.showFormHandler}/>;
+    if (this.state.showForm) {
+      displayElement = <Form />;
+    }
+    else{
+      displayElement = <StartupPage changed={this.showFormHandler}/>
+    }
+    return (
+      <React.Fragment>
+        <Header />
+        {displayElement}
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;

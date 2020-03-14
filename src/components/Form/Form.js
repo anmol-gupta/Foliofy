@@ -1,4 +1,6 @@
 import React from "react";
+import "./Form.css";
+import Input from "../UI/Input/Input"
 
 class FormComponent extends React.Component {
   constructor(props) {
@@ -118,20 +120,20 @@ class FormComponent extends React.Component {
         {detailElementsArray.map(detailElement => (
           <Input
             key={detailElement.id}
-            label={detailElement.config.label}
+            label={detailElement.config.elementConfig.label}
             elementType={detailElement.config.elementType}
             elementConfig={detailElement.config.elementConfig}
             value={detailElement.config.value}
             changed={event => this.inputChangedHandler(event, detailElement.id)}
           />
         ))}
-        <Button btnType="Success">Submit</Button>
+        <button btnType="Success">Submit</button>
       </form>
     );
     return (
-      <React.Fragment>
-        <div className={classes.ContactData}>
-          <h4>Tell me about yourself</h4>
+      <React.Fragment >
+        <div className="FormData">
+          <h1 className="Title">Tell me about yourself</h1>
           {form}
         </div>
       </React.Fragment>
