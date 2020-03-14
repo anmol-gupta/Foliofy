@@ -1,6 +1,7 @@
 import React from "react";
 import "./Form.css";
-import Input from "../UI/Input/Input"
+import Input from "../UI/Input/Input";
+import { Button } from "react-bootstrap";
 
 class FormComponent extends React.Component {
   constructor(props) {
@@ -127,11 +128,11 @@ class FormComponent extends React.Component {
             changed={event => this.inputChangedHandler(event, detailElement.id)}
           />
         ))}
-        <button btnType="Success">Submit</button>
+        <Button>Submit</Button>
       </form>
     );
     return (
-      <React.Fragment >
+      <React.Fragment>
         <div className="FormData">
           <h1 className="Title">Tell me about yourself</h1>
           {form}
