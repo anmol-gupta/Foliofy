@@ -2,7 +2,7 @@ import React from "react";
 import "./Form.css";
 import Input from "../UI/Input/Input";
 import { Button } from "react-bootstrap";
-
+import Portfolio from "../Portfolio/Portfolio";
 class FormComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -92,9 +92,24 @@ class FormComponent extends React.Component {
           },
           value: ""
         }
-      }
+      },
+      showPortfolio: false
     };
   }
+
+  submitHandler = event => {
+    event.preventDefault();
+    const formData = {};
+    for (let formElementIdentifier in this.state.detailForm) {
+      formData[formElementIdentifier] = this.state.detailForm[
+        formElementIdentifier
+      ].value;
+    }
+    // console.log(formData);
+    this.setState({
+      showPortfolio: !this.state.showPortfolio
+    });
+  };
 
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedDetailForm = {
@@ -128,17 +143,21 @@ class FormComponent extends React.Component {
             changed={event => this.inputChangedHandler(event, detailElement.id)}
           />
         ))}
-        <Button>Submit</Button>
+        <Button onClick={this.submitHandler}>Submit</Button>
       </form>
     );
-    return (
-      <React.Fragment>
+    let displayElement = (
+      <div>
         <div className="FormData">
           <h1 className="Title">Tell me about yourself</h1>
           {form}
         </div>
-      </React.Fragment>
+      </div>
     );
+    if (this.state.showPortfolio) {
+      displayElement = <Portfolio formData={this.state.detailForm}/>;
+    }
+    return <React.Fragment>{displayElement}</React.Fragment>;
   }
 }
 

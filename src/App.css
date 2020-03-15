@@ -2,8 +2,12 @@
   text-align: center;
 }
 
+.Particle-Layer {
+  position: fixed !important;
+}
+
 .Company-Text {
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   color: whitesmoke;
   font-size: 6rem;
   text-shadow: 3px 4px #6eb4e6;
@@ -11,7 +15,7 @@
 }
 
 .Company-TagLine {
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
   color: white;
   padding: 15px;
 }
@@ -25,6 +29,5 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1.5rem;
-  margin-top: 12% ;
-
+  margin-top: 12%;
 }
